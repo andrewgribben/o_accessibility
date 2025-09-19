@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>O Captain! My Captain! — Accessible Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to poem</a>
+
+  <header class="site-header" role="banner">
+    <h1 class="site-title">Does poetry hold the secret to accessibility?</h1>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <article class="poem-article" aria-labelledby="poem-title">
+      <header class="poem-header">
+        <h2 id="poem-title">O Captain! My Captain!</h2>
+        <p class="byline">by Walt Whitman</p>
+        <p class="edition-note">
+          Public-domain text, with punctuation aligned to a chosen printing for demo fidelity.
+        </p>
+
+        <form class="controls" aria-label="Display options">
+          <label class="toggle">
+            <input type="checkbox" id="show-line-numbers" />
+            <span>Show line numbers</span>
+          </label>
+        </form>
+      </header>
+
+      <!-- Poem body -->
+      <ol class="poem" role="list" aria-label="O Captain! My Captain! by Walt Whitman">
+        <li class="stanza">
+          <ol class="stanza-lines" aria-label="Stanza 1">
+            <li id="l-1" class="line indent-0">
+              <a class="line-num" href="#l-1" aria-label="Copy link to line 1" data-line="1"></a>
+              <span class="sr-line" data-line="1">Line 1. </span>
+              O Captain! my Captain! our fearful trip is done;
+            </li>
+            <li id="l-2" class="line indent-0">
+              <a class="line-num" href="#l-2" aria-label="Copy link to line 2" data-line="2"></a>
+              <span class="sr-line" data-line="2">Line 2. </span>
+              The ship has weather'd every rack, the prize we sought is won;
+            </li>
+            <li id="l-3" class="line indent-0">
+              <a class="line-num" href="#l-3" aria-label="Copy link to line 3" data-line="3"></a>
+              <span class="sr-line" data-line="3">Line 3. </span>
+              The port is near, the bells I hear, the people all exulting,
+            </li>
+            <li id="l-4" class="line indent-0">
+              <a class="line-num" href="#l-4" aria-label="Copy link to line 4" data-line="4"></a>
+              <span class="sr-line" data-line="4">Line 4. </span>
+              While follow eyes the steady keel, the vessel grim and daring;
+            </li>
+            <li id="l-5" class="line indent-1" role="listitem" aria-level="2">
+              <a class="line-num" href="#l-5" aria-label="Copy link to line 5" data-line="5"></a>
+              <span class="sr-line" data-line="5">Line 5. </span>
+              But O heart! heart! heart!
+            </li>
+            <li id="l-6" class="line indent-2" role="listitem" aria-level="3">
+              <a class="line-num" href="#l-6" aria-label="Copy link to line 6" data-line="6"></a>
+              <span class="sr-line" data-line="6">Line 6. </span>
+              O the bleeding drops of red,
+            </li>
+            <li id="l-7" class="line indent-3" role="listitem" aria-level="4">
+              <a class="line-num" href="#l-7" aria-label="Copy link to line 7" data-line="7"></a>
+              <span class="sr-line" data-line="7">Line 7. </span>
+              Where on the deck my Captain lies,
+            </li>
+            <li id="l-8" class="line indent-4" role="listitem" aria-level="5">
+              <a class="line-num" href="#l-8" aria-label="Copy link to line 8" data-line="8"></a>
+              <span class="sr-line" data-line="8">Line 8. </span>
+              Fallen cold and dead.
+            </li>
+          </ol>
+        </li>
+
+        <li class="stanza">
+          <ol class="stanza-lines" aria-label="Stanza 2">
+            <li id="l-9" class="line indent-0">
+              <a class="line-num" href="#l-9" aria-label="Copy link to line 9" data-line="9"></a>
+              <span class="sr-line" data-line="9">Line 9. </span>
+              O Captain! my Captain! rise up and hear the bells;
+            </li>
+            <li id="l-10" class="line indent-0">
+              <a class="line-num" href="#l-10" aria-label="Copy link to line 10" data-line="10"></a>
+              <span class="sr-line" data-line="10">Line 10. </span>
+              Rise up—for you the flag is flung—for you the bugle trills;
+            </li>
+            <li id="l-11" class="line indent-0">
+              <a class="line-num" href="#l-11" aria-label="Copy link to line 11" data-line="11"></a>
+              <span class="sr-line" data-line="11">Line 11. </span>
+              For you bouquets and ribbon'd wreaths—for you the shores a-crowding;
+            </li>
+            <li id="l-12" class="line indent-0">
+              <a class="line-num" href="#l-12" aria-label="Copy link to line 12" data-line="12"></a>
+              <span class="sr-line" data-line="12">Line 12. </span>
+              For you they call, the swaying mass, their eager faces turning;
+            </li>
+            <li id="l-13" class="line indent-1" role="listitem" aria-level="2">
+              <a class="line-num" href="#l-13" aria-label="Copy link to line 13" data-line="13"></a>
+              <span class="sr-line" data-line="13">Line 13. </span>
+              Here Captain! dear father!
+            </li>
+            <li id="l-14" class="line indent-2" role="listitem" aria-level="3">
+              <a class="line-num" href="#l-14" aria-label="Copy link to line 14" data-line="14"></a>
+              <span class="sr-line" data-line="14">Line 14. </span>
+              This arm beneath your head!
+            </li>
+            <li id="l-15" class="line indent-3" role="listitem" aria-level="4">
+              <a class="line-num" href="#l-15" aria-label="Copy link to line 15" data-line="15"></a>
+              <span class="sr-line" data-line="15">Line 15. </span>
+              It is some dream that on the deck,
+            </li>
+            <li id="l-16" class="line indent-4" role="listitem" aria-level="5">
+              <a class="line-num" href="#l-16" aria-label="Copy link to line 16" data-line="16"></a>
+              <span class="sr-line" data-line="16">Line 16. </span>
+              You've fallen cold and dead.
+            </li>
+          </ol>
+        </li>
+
+        <li class="stanza">
+          <ol class="stanza-lines" aria-label="Stanza 3">
+            <li id="l-17" class="line indent-0">
+              <a class="line-num" href="#l-17" aria-label="Copy link to line 17" data-line="17"></a>
+              <span class="sr-line" data-line="17">Line 17. </span>
+              My Captain does not answer, his lips are pale and still;
+            </li>
+            <li id="l-18" class="line indent-0">
+              <a class="line-num" href="#l-18" aria-label="Copy link to line 18" data-line="18"></a>
+              <span class="sr-line" data-line="18">Line 18. </span>
+              My father does not feel my arm, he has no pulse nor will;
+            </li>
+            <li id="l-19" class="line indent-0">
+              <a class="line-num" href="#l-19" aria-label="Copy link to line 19" data-line="19"></a>
+              <span class="sr-line" data-line="19">Line 19. </span>
+              The ship is anchor'd safe and sound, its voyage closed and done;
+            </li>
+            <li id="l-20" class="line indent-0">
+              <a class="line-num" href="#l-20" aria-label="Copy link to line 20" data-line="20"></a>
+              <span class="sr-line" data-line="20">Line 20. </span>
+              From fearful trip the victor ship comes in with object won;
+            </li>
+            <li id="l-21" class="line indent-1" role="listitem" aria-level="2">
+              <a class="line-num" href="#l-21" aria-label="Copy link to line 21" data-line="21"></a>
+              <span class="sr-line" data-line="21">Line 21. </span>
+              Exult, O shores, and ring, O bells!
+            </li>
+            <li id="l-22" class="line indent-2" role="listitem" aria-level="3">
+              <a class="line-num" href="#l-22" aria-label="Copy link to line 22" data-line="22"></a>
+              <span class="sr-line" data-line="22">Line 22. </span>
+              But I, with mournful tread,
+            </li>
+            <li id="l-23" class="line indent-3" role="listitem" aria-level="4">
+              <a class="line-num" href="#l-23" aria-label="Copy link to line 23" data-line="23"></a>
+              <span class="sr-line" data-line="23">Line 23. </span>
+              Walk the deck my Captain lies,
+            </li>
+            <li id="l-24" class="line indent-4" role="listitem" aria-level="5">
+              <a class="line-num" href="#l-24" aria-label="Copy link to line 24" data-line="24"></a>
+              <span class="sr-line" data-line="24">Line 24. </span>
+              Fallen cold and dead.
+            </li>
+          </ol>
+        </li>
+      </ol>
+
+      <!-- Minimal footnote example using DPUB-ARIA roles -->
+      <section class="endnotes" role="doc-endnotes" aria-label="Notes">
+        <h3>Notes</h3>
+        <ol>
+          <li id="fn-1" role="doc-footnote">
+            <p>
+              On punctuation variants: different printings of <em>Leaves of Grass</em> adjust dashes and commas.
+              This demo aligns punctuation to a public-domain text for screen examples.
+              <a href="#l-1" role="doc-backlink" aria-label="Back to line 1">↩ back</a>
+            </p>
+          </li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>Code licensed MIT. Works offline.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

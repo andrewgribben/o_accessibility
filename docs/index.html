@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>O Captain! My Captain! — Accessibility Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <h1 class="site-title">O Captain! My Captain! — Accessibility Demo</h1>
+    <p class="subtitle">Progressive enhancement of Walt Whitman's poem (1865, public domain)</p>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section class="demo-intro">
+      <h2>Five Stages of Accessibility</h2>
+      <p>This demo shows how to progressively enhance a poem from basic HTML to a fully accessible experience. Each stage builds upon the previous one, demonstrating key accessibility principles.</p>
+    </section>
+
+    <nav class="demo-nav" role="navigation" aria-label="Demo stages">
+      <h3>Demo Stages</h3>
+      <ol class="demo-list">
+        <li>
+          <a href="01 - poem.html" class="demo-link">
+            <h4>Stage 1: Basic Text</h4>
+            <p>Simple paragraphs with line breaks. A semantic starting point.</p>
+          </a>
+        </li>
+        <li>
+          <a href="02 - indented.html" class="demo-link">
+            <h4>Stage 2: Visual Indentation</h4>
+            <p>Individual lines with CSS-based indentation to show poetic structure.</p>
+          </a>
+        </li>
+        <li>
+          <a href="03 - striped.html" class="demo-link">
+            <h4>Stage 3: Responsive Stripes</h4>
+            <p>Added striped backgrounds for small screens to help distinguish wrapped lines.</p>
+          </a>
+        </li>
+        <li>
+          <a href="04 - numbered.html" class="demo-link">
+            <h4>Stage 4: Line Numbers</h4>
+            <p>Added line numbers.</p>
+          </a>
+        </li>
+        <li>
+          <a href="05 - final.html" class="demo-link">
+            <h4>Stage 5: Full Accessibility</h4>
+            <p>Complete accessible implementation with ARIA, semantic HTML, and keyboard navigation.</p>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="about">
+      <h2>About This Demo</h2>
+      <p>This demonstration shows how to make poetry accessible while preserving its original structure and meaning. Each stage introduces new accessibility features without breaking the previous functionality.</p>
+      
+      <h3>Key Accessibility Features Demonstrated:</h3>
+      <ul>
+        <li>Semantic HTML structure</li>
+        <li>ARIA roles and labels</li>
+        <li>Keyboard navigation</li>
+        <li>Screen reader compatibility</li>
+        <li>Progressive enhancement</li>
+        <li>Responsive design</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>Code licensed MIT. Works offline. Poem by Walt Whitman (1865, public domain).</p>
+  </footer>
+
+</body>
+</html>

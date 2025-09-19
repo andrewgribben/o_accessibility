@@ -1,0 +1,200 @@
+/* Base */
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #555555;
+  --accent: #0a66c2;
+  --stripe-bg: #f0f0f0; /* More distinct gray stripe for light mode */
+
+  --font-ui: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+
+  --maxw: 70ch;
+  --line-height: 1.5;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-6: 2rem;
+
+  --line-indent: 2rem;      /* baseline indent for poem lines */
+  --indent-1: 2rem;        /* indentional poem indent level 1 */
+  --indent-2: 3.25rem;     /* indentional poem indent level 2 */
+  --indent-3: 4.5rem;      /* indentional poem indent level 3 */
+  --indent-4: 5.75rem;     /* indentional poem indent level 4 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0c0c;
+    --fg: #f5f5f5;
+    --muted: #b0b0b0;
+    --accent: #7db9ff;
+    --stripe-bg: #242424; /* More distinct darker stripe for dark mode */
+  }
+}
+
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  line-height: var(--line-height);
+}
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: var(--space-4) var(--space-3); }
+.site-header, .site-footer { padding: var(--space-3) var(--space-3); }
+.site-title { font-size: clamp(1.25rem, 2.5vw + 1rem, 2rem); margin: 0; }
+.byline, .edition-note { color: var(--muted); margin: 0 0 var(--space-2); }
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: -9999px; top: auto; overflow: hidden;
+}
+.skip-link:focus {
+  position: static; margin: var(--space-2); padding: var(--space-2);
+  background: var(--accent); color: #fff; border-radius: 4px;
+}
+
+/* Controls */
+.controls {
+  display: flex; gap: var(--space-3); align-items: center;
+  margin: var(--space-3) 0 var(--space-4);
+}
+.toggle input { margin-right: var(--space-2); }
+.btn {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--muted);
+  background: transparent; color: var(--fg);
+  border-radius: 6px;
+}
+.btn[aria-disabled="true"] { opacity: 0.6; }
+
+/* Poem */
+.poem-article { font-family: var(--font-ui); }
+.poem { 
+  list-style: none; 
+  padding: 0; margin: 0;
+  font-family: var(--font-serif);
+  hyphens: none; word-break: normal; overflow-wrap: normal;
+}
+
+/* Stanza structure */
+.stanza {
+  margin: var(--space-4) 0;
+}
+.stanza:first-child {
+  margin-top: 0;
+}
+.stanza-lines {
+  list-style: none;
+  padding: 0; margin: 0;
+  font-family: var(--font-serif);
+}
+
+/* Line layout */
+.line {
+  display: block;
+  padding-left: calc(var(--line-indent) + 2ch); /* room for number gutter */
+  text-indent: calc(var(--line-indent) * -1);   /* hanging indent for wraps only */
+  margin: 0; 
+  position: relative;
+}
+
+
+/* indentional indents (poetic, not wraps) */
+.indent-0 { padding-left: calc(2ch); text-indent: 0; } /* no poetic indent */
+.indent-1 { padding-left: calc(var(--indent-1) + 2ch); text-indent: 0; }
+.indent-2 { padding-left: calc(var(--indent-2) + 2ch); text-indent: 0; }
+.indent-3 { padding-left: calc(var(--indent-3) + 2ch); text-indent: 0; }
+.indent-4 { padding-left: calc(var(--indent-4) + 2ch); text-indent: 0; }
+
+/* Visual line numbers: progressive enhancement approach */
+.line-num::before {
+  counter-increment: lineno;
+  content: counter(lineno);
+}
+.poem { counter-reset: lineno; }
+.stanza-lines { counter-reset: none; } /* Continue counting across stanzas */
+.line-num {
+  position: absolute; left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 2ch; text-align: right; padding-right: 1.5ch;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 0.875rem; /* Smaller font size for line numbers */
+}
+.line-num:hover {
+  color: var(--accent);
+}
+.line-num:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+/* Progressive enhancement: hide line numbers by default when JS is available */
+.js-enabled .line-num {
+  visibility: hidden;
+}
+
+/* Show line numbers when toggle is checked */
+.js-enabled .show-line-numbers .line-num {
+  visibility: visible;
+}
+
+/* Striped lines to disambiguate wraps on small screens */
+@media (max-width: 80ch) {
+  .stanza-lines .line:nth-of-type(odd) { 
+    background: var(--stripe-bg);
+  }
+  .stanza-lines .line:nth-of-type(odd) .line-num { 
+    background: inherit; 
+  }
+}
+
+/* Line anchors: focusable but visually unobtrusive */
+.line-anchor {
+  position: absolute; left: 0; top: 0; width: 0; height: 0; overflow: hidden;
+}
+.line-anchor:focus {
+  outline: 2px solid var(--accent);
+  width: auto; height: auto; padding: var(--space-1) var(--space-2);
+  background: var(--bg); color: var(--accent);
+  transform: translateY(-100%);
+}
+
+/* Screen-reader line preface, toggled by JS */
+.sr-line {
+  position: absolute; left: -9999px; /* visually hidden */
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+/* Endnotes */
+.endnotes { margin-top: var(--space-6); font-family: var(--font-ui); }
+.endnotes h3 { margin: 0 0 var(--space-2); }
+.endnotes ol { padding-left: 1.25rem; }
+
+/* Focus styles */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Reflow at 400%: fluid type */
+.poem-article { font-size: clamp(1rem, 1.2vw + 0.6rem, 1.125rem); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
